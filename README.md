@@ -1,6 +1,7 @@
 # ProductivityRot
 
 This is a producitivty app to track how many Sigma, Skibidi and Ohio points you get!
+
 -# This is a satirical project created for the [brainrot jia.seed hackathon](https://brainrot-jia-seed-hackathon.devpost.com/)
 
 ## Points Structure
