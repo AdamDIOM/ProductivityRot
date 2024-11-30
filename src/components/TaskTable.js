@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/table.css';
 
-const TaskTable = ({ tasks, completeTask }) => {
+const TaskTable = ({ tasks, updateTaskStatus }) => {
     return (
         <table>
             <thead>
@@ -9,7 +9,6 @@ const TaskTable = ({ tasks, completeTask }) => {
                 <th>Keyword</th>
                 <th>Points</th>
                 <th>Status</th>
-                <th>Action</th>
             </tr>
             </thead>
             <tbody>
@@ -17,11 +16,15 @@ const TaskTable = ({ tasks, completeTask }) => {
                 <tr key={task.id}>
                     <td>{task.keyword}</td>
                     <td>{task.points}</td>
-                    <td>{task.status}</td>
                     <td>
-                        {task.status === 'pending' && (
-                            <button onClick={() => completeTask(task)}>Complete</button>
-                        )}
+                        <select
+                            value={task.status}
+                            onChange={(e) => updateTaskStatus(task, e.target.value)}
+                        >
+                            <option value="pending">Pending</option>
+                            <option value="ongoing">Ongoing</option>
+                            <option value="completed">Completed</option>
+                        </select>
                     </td>
                 </tr>
             ))}
