@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { Button } from 'react-bootstrap';
 
 function App() {
 
@@ -16,12 +17,16 @@ function App() {
 
   return (
     <div className="App">
-      // user enters a statement
-      // statement is checked against fact list
-      // if there's a point to be earned, it's added to completedJobs
-      {completedJobs.map((job) => (
-                <p>{job.points} {job.type} points! ({job.points * multipliers[job.type]} aura points)</p>
+      <p>user enters a statement
+      statement is checked against fact list
+      if there's a point to be earned, it's added to completedJobs</p>
+      {completedJobs.map((job, index) => (
+                <p key={index}>{job.points} {job.type} points! ({job.points * multipliers[job.type]} aura points)</p>
       ))}
+
+      {/* <Button onClick={
+        setCompletedJobs(completedJobs.push({"type": "ohio", "points": 1, "statement": "pressed button"}))
+      }></Button> */}
 
     </div>
   );
