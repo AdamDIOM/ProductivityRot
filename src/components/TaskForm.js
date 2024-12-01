@@ -9,10 +9,19 @@ const TaskForm = ({ addTask, database }) => {
     };
 
     const handleKeywordChange = (e) => {
-        const keyword = e.target.value;
-        const matchedEntry = database.find(entry => entry.Keyword.toLowerCase() === keyword.toLowerCase());
-        const points = matchedEntry ? matchedEntry.Number : 0;
-        setTask({ ...task, keyword, points });
+        const keyword = e.target.value.toLowerCase();
+        let points = 0;
+        const words = keyword.split(' ');
+
+        database.forEach(entry => {
+            words.forEach(word => {
+                if (word === entry.Keyword.toLowerCase()) {
+                    points += entry.Number;
+                }
+            });
+        });
+
+        setTask({ ...task, keyword: e.target.value, points });
     };
 
     const handleSubmit = (e) => {
