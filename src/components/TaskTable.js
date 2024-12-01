@@ -6,7 +6,7 @@ const TaskTable = ({ tasks, updateTaskStatus }) => {
         <table>
             <thead>
             <tr>
-                <th>Keyword</th>
+                <th>Task</th>
                 <th>Points</th>
                 <th>Status</th>
             </tr>

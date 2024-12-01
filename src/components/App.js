@@ -9,7 +9,7 @@ const App = () => {
     const [database, setDatabase] = useState([]);
 
     useEffect(() => {
-        fetch('https://script.googleusercontent.com/macros/echo?user_content_key=P0gsWPmAUlwiuSVaHhznwJUaL_B671vV28biRasMPXpJKYHGtE1JraTzEh1uUbb3RSL23sbGMtcMDLcxQXuhLtI_lE2c3kNom5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnLJaPKME-1Bbfc3BSBvXxIFvGu7U_lQIV_FZtv9pKpPVJl-wxy2StlV7XR0nzdtlzWV1_wnaCKvoKu_x5bAXfSmZYpEGaI4Z6A&lib=MMOg3KJ6Ab9Hrabe-yKpfzdoBno9WCgsY')
+        fetch('https://script.google.com/macros/s/AKfycbx4eRJ9XFDOrm0ZbUl3gCSzWsEV6k7IwoV0ARFoBNOenXtE92kE1QmfAkCmpvyOw24H/exec')
             .then(response => response.json())
             .then(data => setDatabase(data))
             .catch(error => console.error('Error fetching data:', error));
