@@ -17,7 +17,7 @@ const TaskTable = ({ tasks, updateTaskStatus }) => {
                     <td>{task.keyword}</td>
                     <td>
                         {task.types.map((taskType, index, list) => (
-                            <span>{task.pointsarr[index]} {taskType} points{index != list.length-1 ? <span>, </span>: <span> </span>}</span>
+                            <span>{task.pointsarr[index]} {taskType} points{index !== list.length-1 ? <span>, </span>: <span> </span>}</span>
                         ))}
                         ({task.points} aura points)
                     </td>
