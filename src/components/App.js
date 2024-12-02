@@ -37,7 +37,7 @@ const App = () => {
             <TaskForm addTask={addTask} database={database} />
             <TaskTable tasks={tasks} updateTaskStatus={updateTaskStatus} />
             <div className="points">
-                Total Points: {points}
+                Total Aura Points: {points}
             </div>
         </div>
     );

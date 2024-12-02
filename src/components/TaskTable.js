@@ -15,14 +15,19 @@ const TaskTable = ({ tasks, updateTaskStatus }) => {
             {tasks.map(task => (
                 <tr key={task.id}>
                     <td>{task.keyword}</td>
-                    <td>{task.points}</td>
+                    <td>
+                        {task.types.map((taskType, index, list) => (
+                            <span>{task.pointsarr[index]} {taskType} points{index != list.length-1 ? <span>, </span>: <span> </span>}</span>
+                        ))}
+                        ({task.points} aura points)
+                    </td>
                     <td>
                         <select
                             value={task.status}
                             onChange={(e) => updateTaskStatus(task, e.target.value)}
                         >
                             <option value="pending">Pending</option>
-                            <option value="ongoing">Ongoing</option>
+                            {/* <option value="ongoing">Ongoing</option> */}
                             <option value="completed">Completed</option>
                         </select>
                     </td>
