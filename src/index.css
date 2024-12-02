@@ -25,6 +25,7 @@ code {
 
 .subway-img-wrapper{
   overflow: hidden;
+  position:fixed;
 }
 
 .app-wrapper{
@@ -33,4 +34,9 @@ code {
 
 .app{
   width:100%;
+  display: block;
+}
+
+.skibidi-img{
+  display: block;
 }
