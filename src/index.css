@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.subway-img{
+  height:100vh;
+}
+.sil{
+  transform: translateX(-40%)
+}
+
+.sir{
+  transform: translateX(-45%)
+}
+
+.subway-img-wrapper{
+  overflow: hidden;
+}
+
+.app-wrapper{
+  height:100vh;
+}
+
+.app{
+  width:100%;
+}
