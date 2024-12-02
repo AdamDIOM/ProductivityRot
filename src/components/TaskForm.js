@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 
 const TaskForm = ({ addTask, database }) => {
-    const [task, setTask] = useState({ keyword: '', points: 0, status: 'pending' });
+    const [task, setTask] = useState({ keyword: '', points: 0, pointsarr: [], status: 'pending', types: [] });
+
+    const pointsMultiplier = {
+        "Ohio": -1,
+        "Sigma": 3,
+        "Skibidi": 1,
+        "Rizz": 0
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -11,23 +18,26 @@ const TaskForm = ({ addTask, database }) => {
     const handleKeywordChange = (e) => {
         const keyword = e.target.value.toLowerCase();
         let points = 0;
+        let pointsarr = [];
         const words = keyword.split(' ');
-
+        let types = []
         database.forEach(entry => {
             words.forEach(word => {
                 if (word === entry.Keyword.toLowerCase()) {
-                    points += entry.Number;
+                    types.push(entry.PointType);
+                    pointsarr.push(entry.Number);
+                    points += entry.Number * pointsMultiplier[entry.PointType];
                 }
             });
         });
 
-        setTask({ ...task, keyword: e.target.value, points });
+        setTask({ ...task, keyword: e.target.value, points, pointsarr: pointsarr, types: types });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         addTask({ ...task, id: Date.now() });
-        setTask({ keyword: '', points: 0, status: 'pending' });
+        setTask({ keyword: '', points: 0, status: 'pending', pointsarr: [], types: [] });
     };
 
     return (
